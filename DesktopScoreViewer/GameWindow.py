@@ -22,24 +22,24 @@ class GameWindow(wx.Frame):
         strikes = gamestatus.find('div', class_='pitchCount__item pitchCount__item--strikes')
         outs = gamestatus.find('div', class_='pitchCount__item pitchCount__item--outs')
 
-        ballcount = 0;
-        strikecount = 0;
-        outcount = 0;
+        self.ballcount = 0;
+        self.strikecount = 0;
+        self.outcount = 0;
 
         ball = balls.findAll('span')
         for b in ball:
             if(len(b.attrs['class']) > 1):
-                ballcount += 1
+                self.ballcount += 1
 
         strike = strikes.findAll('span')
         for s in strike:
             if(len(s.attrs['class']) > 1):
-                strikecount += 1
+                self.strikecount += 1
 
         out = outs.findAll('span')
         for o in out:
             if(len(o.attrs['class']) > 1):
-                outcount += 1
+                self.outcount += 1
 
         wx.Frame.__init__(self, parent, title=text, size=(400,222),
                           style=wx.DEFAULT_FRAME_STYLE & ~(wx.RESIZE_BORDER | wx.MAXIMIZE_BOX))
@@ -110,22 +110,52 @@ class GameWindow(wx.Frame):
 
     def OnPaint(self, event):
         dc = wx.PaintDC(self)
-        ballbrush = wx.Brush("red", style=wx.BRUSHSTYLE_TRANSPARENT)
-        dc.SetBrush(ballbrush)
-        dc.DrawCircle(25,180,7)
-        dc.DrawCircle(55,180,7)
-        dc.DrawCircle(85,180,7)
-        dc.DrawCircle(115,180,7)
 
-        strikebrush = wx.Brush("red")
+        ballbrush = wx.Brush("yellow", style=wx.BRUSHSTYLE_SOLID)
+        dc.SetBrush(ballbrush)
+        if self.ballcount == 0:
+            ballbrush.SetStyle(wx.BRUSHSTYLE_TRANSPARENT)
+            dc.SetBrush(ballbrush)
+        dc.DrawCircle(25, 180, 7)
+        if self.ballcount == 1:
+            ballbrush.SetStyle(wx.BRUSHSTYLE_TRANSPARENT)
+            dc.SetBrush(ballbrush)
+        dc.DrawCircle(55, 180, 7)
+        if self.ballcount == 2:
+            ballbrush.SetStyle(wx.BRUSHSTYLE_TRANSPARENT)
+            dc.SetBrush(ballbrush)
+        dc.DrawCircle(85, 180, 7)
+        if self.ballcount == 3:
+            ballbrush.SetStyle(wx.BRUSHSTYLE_TRANSPARENT)
+            dc.SetBrush(ballbrush)
+        dc.DrawCircle(115, 180, 7)
+
+        strikebrush = wx.Brush("red", style=wx.BRUSHSTYLE_SOLID)
         dc.SetBrush(strikebrush)
-        dc.DrawCircle(175,180,7)
-        dc.DrawCircle(210,180,7)
-        dc.DrawCircle(245,180,7)
+        if self.strikecount == 0:
+            strikebrush.SetStyle(wx.BRUSHSTYLE_TRANSPARENT)
+            dc.SetBrush(strikebrush)
+        dc.DrawCircle(175, 180, 7)
+        if self.strikecount == 1:
+            strikebrush.SetStyle(wx.BRUSHSTYLE_TRANSPARENT)
+            dc.SetBrush(strikebrush)
+        dc.DrawCircle(210, 180, 7)
+        if self.strikecount == 2:
+            strikebrush.SetStyle(wx.BRUSHSTYLE_TRANSPARENT)
+            dc.SetBrush(strikebrush)
+        dc.DrawCircle(245, 180, 7)
 
         outbrush = wx.Brush("red", style=wx.BRUSHSTYLE_SOLID)
         dc.SetBrush(outbrush)
-        dc.DrawCircle(375,180,7)
-        outbrush.SetStyle(wx.BRUSHSTYLE_TRANSPARENT)
-        dc.DrawCircle(340,180,7)
-        dc.DrawCircle(305,180,7)
+        if self.outcount == 0:
+            outbrush.SetStyle(wx.BRUSHSTYLE_TRANSPARENT)
+            dc.SetBrush(outbrush)
+        dc.DrawCircle(375, 180, 7)
+        if self.outcount == 1:
+            outbrush.SetStyle(wx.BRUSHSTYLE_TRANSPARENT)
+            dc.SetBrush(outbrush)
+        dc.DrawCircle(340, 180, 7)
+        if self.outcount == 2:
+            outbrush.SetStyle(wx.BRUSHSTYLE_TRANSPARENT)
+            dc.SetBrush(outbrush)
+        dc.DrawCircle(305, 180, 7)

@@ -161,8 +161,3 @@ class MenuWindow(wx.Frame):
 
 
 
-
-
-
-
-
