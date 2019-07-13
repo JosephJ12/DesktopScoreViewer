@@ -1,14 +1,13 @@
 import setuptools
 
 # README text
-
 with open("README.rst", "r") as f:
     long_description = f.read()
 
 #calling setup()
 setuptools.setup(
     name="DesktopScoreViewer",
-    version="1.0.1",
+    version="1.0.5",
     description="Gathers live MLB game scores and data and displays them on a mini GUI on the top right corner of the screen",
     long_description=long_description,
     long_description_content_type="text/x-rst",
@@ -24,7 +23,6 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     include_package_data=True,
     install_requires=['wxPython',
-                      're',
                       'bs4',
                       'selenium',
                       ],

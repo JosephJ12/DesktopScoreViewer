@@ -27,6 +27,13 @@ Usage
 Running the __main__.py of package will open
 up the GUI.
 
+.. code-block:: python
+
+    from DesktopScoreViewer import __main__
+
+    #call DesktopScoreViewer package's main
+    __main__.main()
+
 License
 --------
 `MIT
