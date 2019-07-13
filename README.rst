@@ -21,8 +21,6 @@ You can also install using pip:
 ::
 
     pip install DesktopScoreViewer
-    
-Program also requires firefox webdriver geckodriver
 
 Program also requires firefox webdriver,
 geckodriver which must be installed separately.
