@@ -2,8 +2,8 @@ DesktopScoreViewer
 ==================
 The DesktopScoreViewer program does exactly as
 its name implies: it gathers game scores and
-data and displays them live on a mini GUI in the
-top rightt corner of your screen. This allows the
+data and displays them live on a mini GUI on the
+top right corner of your screen. This allows the
 user to casually follow games without it being
 too intrusive or distracting.
 
