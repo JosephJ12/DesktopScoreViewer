@@ -1,5 +1,4 @@
 import wx
-#import time
 import re
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -15,7 +14,7 @@ def alignToTopRight(win):
 
 class MenuWindow(wx.Frame):
     def __init__(self):
-        wx.Frame.__init__(self, parent=None, title='Desktop Score Viewer', size=(400,222),
+        wx.Frame.__init__(self, parent=None, title='Desktop Score Viewer', size=(400,207),
                          style=wx.DEFAULT_FRAME_STYLE & ~(wx.RESIZE_BORDER | wx.MAXIMIZE_BOX))
         self.panel = wx.Panel(self)
         self.sizer = wx.BoxSizer(wx.VERTICAL)
@@ -90,8 +89,8 @@ class MenuWindow(wx.Frame):
                 gamedividersizer = wx.StaticBoxSizer(gamedivider, wx.VERTICAL)
 
                 #add statictext to staticboxsizer
-                gamedividersizer.Add(statictextlist[count-1], 0, wx.CENTER, 10)
-                gamedividersizer.Add(statictextlist[count], 0, wx.CENTER, 10)
+                gamedividersizer.Add(statictextlist[count-1], 0, wx.ALIGN_CENTER, 10)
+                gamedividersizer.Add(statictextlist[count], 0, wx.ALIGN_CENTER, 10)
 
                 #add staticboxsizer to display sizer
                 self.display.scorewindowsizer.Add(gamedividersizer, 1, wx.EXPAND | wx.ALL, 10)
@@ -113,32 +112,6 @@ class MenuWindow(wx.Frame):
         self.display.Show()
         self.Hide()
 
-        """while(True):
-            self.driver.get(url)
-            page = self.driver.page_source
-            soup = BeautifulSoup(page, 'lxml')
-            self.display.scorewindowsizer.Clear(True)
-
-            games = soup.findAll('article', class_="scoreboard baseball live js-show")
-            for game in games:
-                inning = game.find('th', class_="date-time")
-                scores = game.findAll('td', class_="total")
-                competingteamnames = game.findAll('span', class_="sb-team-short")
-                competingteamabbrev = game.findAll('span', class_="sb-team-abbrev")
-                for i in range(len(competingteamnames)):
-                    score = scores[i].text
-                    if i % 2 == 0:
-                        away = competingteamabbrev[i].text + " " + competingteamnames[i].text
-                        text = str(inning.text + "\nAway: " + away + " - " + score)
-                    else:
-                        home = competingteamabbrev[i].text + " " + competingteamnames[i].text
-                        text = str(inning.text + "\nHome: " + home + " - " + score)
-
-                    textdisplay = wx.StaticText(self.display, label=text)
-                    self.display.scorewindowsizer.Add(textdisplay, 0, wx.ALL | wx.EXPAND, 5)
-            time.sleep(30)
-        """
-
     def follow_game(self, event):
         but = event.GetEventObject()
 
@@ -149,7 +122,6 @@ class MenuWindow(wx.Frame):
         alignToTopRight(self.display.game)
         self.display.Hide()
         self.display.game.Show()
-
 
     #cleanly closes itself and firefox driver
     def OnClose(self, event):

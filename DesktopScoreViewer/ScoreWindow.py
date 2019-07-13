@@ -3,7 +3,7 @@ from wx.lib import scrolledpanel
 
 class ScoreWindow(wx.Frame):
     def __init__(self, parent, text):
-        wx.Frame.__init__(self, parent, title=text, size=(400,222),
+        wx.Frame.__init__(self, parent, title=text, size=(400,207),
                           style=wx.DEFAULT_FRAME_STYLE & ~(wx.RESIZE_BORDER | wx.MAXIMIZE_BOX))
         self.scorePanel = wx.lib.scrolledpanel.ScrolledPanel(self)
         self.parent = parent

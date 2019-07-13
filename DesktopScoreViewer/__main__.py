@@ -1,3 +1,4 @@
+
 import wx
 from DesktopScoreViewer.MenuWindow import MenuWindow
 from DesktopScoreViewer.MenuWindow import alignToTopRight
