@@ -99,7 +99,14 @@ class GameWindow(wx.Frame):
 
         teamscores = soup.findAll('div', class_='score-container')
         gameinning = soup.find('span', class_='status-detail').text
-        self.topbot, self.inningno = gameinning.split(' ')
+
+        self.gametime = gameinning.split(' ')
+        if(len(self.gametime) > 2):
+            self.topbot = self.gametime[-2]
+            self.inningno = self.gametime[-1]
+        else:
+            self.topbot = self.gametime[0]
+            self.inningno = self.gametime[1]
 
         if (self.topbot == "Bottom"):
             self.hometextdivider.SetBackgroundColour("lime green")
@@ -113,7 +120,7 @@ class GameWindow(wx.Frame):
 
         self.homescore = wx.StaticText(self.gamepanel, label=teamscores[0].text, size=(115,40), style=wx.ALIGN_CENTER)
         self.awayscore = wx.StaticText(self.gamepanel, label=teamscores[1].text, size=(115,40), style=wx.ALIGN_CENTER)
-        self.inning = wx.StaticText(self.gamepanel, label=self.inningno[:-2], size=(115,40), style=wx.ALIGN_CENTER)
+        self.inning = wx.StaticText(self.gamepanel, label="".join(self.inningno[:-2]), size=(115,40), style=wx.ALIGN_CENTER)
 
         scorefont = wx.Font(34, wx.FONTFAMILY_MODERN, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL)
         self.homescore.SetFont(scorefont)
@@ -173,7 +180,6 @@ class GameWindow(wx.Frame):
         self.timer.Start(milliseconds=15000, oneShot=wx.TIMER_CONTINUOUS)
 
     def OnClose(self, event):
-
         if(self.dc):
             self.dc.Destroy()
         self.driver.close()
@@ -292,7 +298,13 @@ class GameWindow(wx.Frame):
 
         teamscores = soup.findAll('div', class_='score-container')
         gameinning = soup.find('span', class_='status-detail').text
-        self.topbot, self.inningno = gameinning.split(' ')
+        self.gametime = gameinning.split(' ')
+        if (len(self.gametime) > 2):
+            self.topbot = self.gametime[-2]
+            self.inningno = self.gametime[-1]
+        else:
+            self.topbot = self.gametime[0]
+            self.inningno = self.gametime[1]
 
         if(self.topbot == "Bottom"):
             self.hometextdivider.SetBackgroundColour("lime green")
@@ -306,7 +318,7 @@ class GameWindow(wx.Frame):
 
         self.homescore.SetLabel(teamscores[0].text)
         self.awayscore.SetLabel(teamscores[1].text)
-        self.inning.SetLabel(self.inningno[:-2])
+        self.inning.SetLabel("".join(self.inningno[:-2]))
 
         self.ballcount = 0;
         self.strikecount = 0;
@@ -336,3 +348,5 @@ class GameWindow(wx.Frame):
         # draw top and bottom triangles
         self.DrawTop()
         self.DrawBot()
+
+        self.Bind(wx.EVT_CLOSE, self.OnClose)
