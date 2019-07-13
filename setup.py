@@ -23,10 +23,9 @@ setuptools.setup(
     ],
     packages=setuptools.find_packages(),
     include_package_data=True,
-    install_requires=['wx',
+    install_requires=['wxPython',
                       're',
                       'bs4',
                       'selenium',
-                      'wx.lib',
                       ],
 )
