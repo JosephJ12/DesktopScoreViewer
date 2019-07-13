@@ -7,7 +7,7 @@ with open("README.rst", "r") as f:
 #calling setup()
 setuptools.setup(
     name="DesktopScoreViewer",
-    version="1.0.5",
+    version="2.0.0",
     description="Gathers live MLB game scores and data and displays them on a mini GUI on the top right corner of the screen",
     long_description=long_description,
     long_description_content_type="text/x-rst",
@@ -25,5 +25,6 @@ setuptools.setup(
     install_requires=['wxPython',
                       'bs4',
                       'selenium',
+                      'lxml',
                       ],
 )
