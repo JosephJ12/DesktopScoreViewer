@@ -22,6 +22,11 @@ You can also install using pip:
 
     pip install DesktopScoreViewer
 
+Program also requires firefox webdriver,
+geckodriver which must be installed separately.
+Install at this link:
+https://www.guru99.com/gecko-marionette-driver-selenium.html
+
 Usage
 -----
 Running the __main__.py of package will open
