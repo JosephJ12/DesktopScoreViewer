@@ -7,6 +7,14 @@ top right corner of your screen. This allows the
 user to casually follow games without it being
 too intrusive or distracting.
 
+Skills Used
+-----------------
+- Python
+- GUI: wxPython
+- Web scraping: beautifulsoup4, selenium
+- Data visualization: matplotlib
+
+
 Installation
 ------------
 You can press the git clone button on the top
@@ -29,6 +37,11 @@ https://www.guru99.com/gecko-marionette-driver-selenium.html
 
 Usage
 -----
+Go into directory with __main__.py and run from terminal with command:
+
+.. code-block:: bash
+    python3 __main__.py
+
 Running the __main__.py of package will open
 up the GUI.
 
