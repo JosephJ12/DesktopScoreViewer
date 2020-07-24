@@ -37,7 +37,7 @@ https://www.guru99.com/gecko-marionette-driver-selenium.html
 
 Usage
 -----
-Go into directory with __main__.py and run from terminal with command:
+From terminal, go into directory with __main__.py and run with command:
 
 ::
 
