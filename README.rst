@@ -39,7 +39,8 @@ Usage
 -----
 Go into directory with __main__.py and run from terminal with command:
 
-.. code-block:: bash
+::
+
     python3 __main__.py
 
 Running the __main__.py of package will open
